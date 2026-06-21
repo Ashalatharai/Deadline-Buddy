@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Deadline Buddy AI is a premium, futuristic student productivity dashboard and assignment command center featuring an intelligent priority engine, real-time countdowns, and gamified productivity tracking.">
+  <title>Deadline Buddy AI – Smart Assignment Command Center</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Lucide Icons (CDN) -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  
+  <div class="app-wrapper">
+    <!-- Background Decor Elements for Cyberpunk/Glassmorphic look -->
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+
+    <!-- ==========================================
+         VIEW 1: LANDING PAGE
+         ========================================== -->
+    <section id="view-landing" class="app-view">
+      <header class="app-header landing-nav">
+        <div class="header-logo">
+          <div class="logo-icon">
+            <i data-lucide="zap"></i>
+          </div>
+          <div class="logo-text">
+            <span class="logo-title">Deadline Buddy <span class="accent-text"></span></span>
+            <span class="logo-subtitle"></span>
+          </div>
+        </div>
+        <div class="header-controls">
+          <button id="theme-toggle-landing" class="btn-icon theme-toggle-btn" title="Toggle Theme" aria-label="Toggle theme">
+            <i data-lucide="sun" class="sun-icon"></i>
+            <i data-lucide="moon" class="moon-icon"></i>
+          </button>
+          <button id="btn-nav-login" class="btn btn-secondary">
+            <span>Sign In</span>
+          </button>
+          <button id="btn-nav-start" class="btn btn-primary">
+            <span>Get Started</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="landing-hero-container">
+        <div class="landing-hero-content">
+          
+          <h1>Dominate Your Deadlines.<br>Gamify Your <span class="accent-gradient">Academic Success.</span></h1>
+          <p class="hero-subtext">Stop losing points to forgotten homework. Deadline Buddy AI calculates real-time urgency weights, prioritizes tasks in Kanban radars, and tracks your daily productivity score.</p>
+          <div class="hero-ctas">
+            <button id="btn-hero-start" class="btn btn-primary btn-lg">
+              <span>Get Started</span>
+              <i data-lucide="arrow-right"></i>
+            </button>
+            <a href="#features" class="btn btn-secondary btn-lg">
+              <span>Explore Features</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="landing-hero-preview glass-panel">
+          <div class="preview-header">
+            <div class="window-dots">
+              <span class="dot-red"></span>
+              <span class="dot-yellow"></span>
+              <span class="dot-green"></span>
+            </div>
+            <div class="preview-title">Command Center Preview</div>
+          </div>
+          <div class="preview-mock-grid">
+            <div class="mock-card mock-crit">
+              <div class="mock-tag">DSA</div>
+              <div class="mock-card-title">Assignment1</div>
+              <div class="mock-time red-text"><i data-lucide="flame"></i> 4 Hours Left</div>
+            </div>
+            <div class="mock-card mock-att">
+              <div class="mock-tag">JAVA</div>
+              <div class="mock-card-title">Assignment2-Presentaion</div>
+              <div class="mock-time yellow-text"><i data-lucide="clock"></i> 2 Days Left</div>
+            </div>
+            <div class="mock-card mock-completed">
+              <div class="mock-tag">Software Engineering</div>
+              <div class="mock-card-title">Report</div>
+              <div class="mock-time green-text"><i data-lucide="check"></i> Completed</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Features Section -->
+      <section id="features" class="landing-features">
+        <div class="section-header">
+          <h2>Engineered for High-Achieving Students</h2>
+          <p>Traditional planners store tasks. Deadline Buddy AI actively organizes your focus.</p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card glass-panel">
+            <div class="feature-icon red-glow"><i data-lucide="radar"></i></div>
+            <h3>Intelligent Urgency Radar</h3>
+            <p>Tasks dynamically slide across Critical, Attention, and Safe Zones based on due-date proximity and workload size.</p>
+          </div>
+          <div class="feature-card glass-panel">
+            <div class="feature-icon yellow-glow"><i data-lucide="timer"></i></div>
+            <h3>Live Countdown Engine</h3>
+            <p>Calculates exact relative times down to the second. Triggers border pulsing effects as deadlines close in.</p>
+          </div>
+          <div class="feature-card glass-panel">
+            <div class="feature-icon green-glow"><i data-lucide="trending-up"></i></div>
+            <h3>Gamified Productivity Meter</h3>
+            <p>Calculates a daily efficiency score. Promotes study discipline by penalizing overdue items on the circle graph.</p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="app-footer">
+        <p>© 2026 Deadline Buddy AI – Designed for Student Superpowers. Built with Glassmorphism & LocalStorage.</p>
+      </footer>
+    </section>
+
+    <!-- ==========================================
+         VIEW 2: LOGIN PAGE (PROFILE CREATION)
+         ========================================== -->
+    <section id="view-login" class="app-view hidden">
+      <div class="login-container">
+        <div class="login-card glass-panel">
+          <div class="login-header">
+            <div class="logo-icon">
+              <i data-lucide="zap"></i>
+            </div>
+            <h2>Sign In</h2>
+            <p>Define your academic profile to launch the dashboard.</p>
+          </div>
+          <form id="form-login" class="modal-form">
+            <div class="form-group">
+              <label for="login-student-name">Student Full Name *</label>
+              <input type="text" id="login-student-name" required  autocomplete="off">
+            </div>
+            <div class="form-group">
+              <label for="login-student-major">Academic Major / Course</label>
+              <input type="text" id="login-student-major" autocomplete="off">
+            </div>
+            <button type="submit" class="btn btn-primary w-100 btn-login-submit">
+              <span>Sign In</span>
+              <i data-lucide="arrow-right"></i>
+            </button>
+            <button type="button" id="btn-login-back" class="btn btn-secondary w-100" style="margin-top: 8px;">
+              <span>Cancel</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         VIEW 3: DASHBOARD COMMAND CENTER
+         ========================================== -->
+    <section id="view-dashboard" class="app-view hidden">
+      <!-- Main Navigation Bar -->
+      <header class="app-header">
+        <div class="header-logo">
+          <div class="logo-icon">
+            <i data-lucide="zap"></i>
+          </div>
+          <div class="logo-text">
+            <span class="logo-title">Deadline Buddy <span class="accent-text">AI</span></span>
+            <span class="logo-subtitle">Smart Command Center</span>
+          </div>
+        </div>
+        <div class="header-controls">
+          <div class="clock-display" id="clock-display">
+            <i data-lucide="clock"></i>
+            <span id="current-time">00:00:00 AM</span>
+          </div>
+          <button id="theme-toggle-dashboard" class="btn-icon theme-toggle-btn" title="Toggle Theme" aria-label="Toggle theme">
+            <i data-lucide="sun" class="sun-icon"></i>
+            <i data-lucide="moon" class="moon-icon"></i>
+          </button>
+          <button id="btn-add-assignment" class="btn btn-primary">
+            <i data-lucide="plus"></i>
+            <span>New Assignment</span>
+          </button>
+          <button id="btn-logout" class="btn btn-secondary" title="Log Out">
+            <i data-lucide="log-out"></i>
+            <span>Logout</span>
+          </button>
+        </div>
+      </header>
+
+      <main class="app-main">
+        <!-- Hero / Greeting Section -->
+        <section class="hero-section" aria-labelledby="hero-title">
+          <div class="hero-left">
+            <div class="student-profile">
+              <div class="avatar">
+                <span id="avatar-initials">SB</span>
+              </div>
+              <div class="greeting-details">
+                <h1 id="hero-title">Welcome Back, <span id="student-name">Student</span></h1>
+                <p class="current-date-text" id="current-date-text">Monday, June 15, 2026</p>
+              </div>
+            </div>
+          </div>
+          <div class="hero-right quote-card">
+            <div class="quote-icon"><i data-lucide="quote"></i></div>
+            <div class="quote-content">
+              <p id="motivational-quote">"Small progress every day leads to big results."</p>
+              <span id="quote-author" class="quote-author">— Anonymous</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Stats and Productivity Grid -->
+        <section class="overview-section" aria-label="Dashboard Overview Stats">
+          <div class="stats-grid">
+            <!-- Stat 1 -->
+            <div class="stat-card glass-panel" id="stat-total">
+              <div class="stat-header">
+                <span class="stat-title">Total Assignments</span>
+                <div class="stat-icon-wrapper blue"><i data-lucide="folder-kanban"></i></div>
+              </div>
+              <div class="stat-value" id="val-total">0</div>
+              <div class="stat-footer text-muted" id="footer-total">No active tasks</div>
+            </div>
+
+            <!-- Stat 2 -->
+            <div class="stat-card glass-panel" id="stat-today">
+              <div class="stat-header">
+                <span class="stat-title">Due Today</span>
+                <div class="stat-icon-wrapper red"><i data-lucide="alert-triangle"></i></div>
+              </div>
+              <div class="stat-value red-text" id="val-today">0</div>
+              <div class="stat-footer red-text" id="footer-today">Immediate action required</div>
+            </div>
+
+            <!-- Stat 3 -->
+            <div class="stat-card glass-panel" id="stat-week">
+              <div class="stat-header">
+                <span class="stat-title">Due This Week</span>
+                <div class="stat-icon-wrapper yellow"><i data-lucide="calendar"></i></div>
+              </div>
+              <div class="stat-value yellow-text" id="val-week">0</div>
+              <div class="stat-footer text-muted" id="footer-week">Next 7 days</div>
+            </div>
+
+            <!-- Stat 4 -->
+            <div class="stat-card glass-panel" id="stat-completed">
+              <div class="stat-header">
+                <span class="stat-title">Completed Tasks</span>
+                <div class="stat-icon-wrapper green"><i data-lucide="check-circle-2"></i></div>
+              </div>
+              <div class="stat-value green-text" id="val-completed">0</div>
+              <div class="stat-footer green-text" id="footer-completed">0% of total tasks</div>
+            </div>
+          </div>
+
+          <!-- Productivity Score Card -->
+          <div class="productivity-card glass-panel">
+            <div class="prod-left">
+              <h3>Productivity Meter</h3>
+              <p class="prod-desc">Calculated dynamically based on completed, pending, and overdue assignments.</p>
+              <div class="prod-breakdown">
+                <div class="breakdown-item">
+                  <span class="dot green-dot"></span>
+                  <span id="prod-completed-lbl">0 Completed</span>
+                </div>
+                <div class="breakdown-item">
+                  <span class="dot red-dot"></span>
+                  <span id="prod-overdue-lbl">0 Overdue</span>
+                </div>
+              </div>
+            </div>
+            <div class="prod-right">
+              <div class="circular-progress-container">
+                <svg class="progress-ring" width="120" height="120" viewBox="0 0 120 120">
+                  <circle class="progress-ring__background" stroke-width="10" fill="transparent" r="50" cx="60" cy="60" />
+                  <circle class="progress-ring__circle" id="productivity-circle" stroke-width="10" fill="transparent" r="50" cx="60" cy="60" stroke-dasharray="314.16" stroke-dashoffset="314.16" />
+                </svg>
+                <div class="progress-percentage-label">
+                  <span class="percentage-value" id="productivity-score">0</span>
+                  <span class="percentage-symbol">%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Dashboard Controls / Toolbar -->
+        <section class="toolbar-section glass-panel" aria-label="Dashboard controls">
+          <div class="search-box">
+            <i data-lucide="search"></i>
+            <input type="text" id="search-input" placeholder="Search assignments by name, description..." aria-label="Search assignments">
+          </div>
+          <div class="filter-controls">
+            <div class="select-wrapper">
+              <i data-lucide="tag"></i>
+              <select id="filter-subject" aria-label="Filter by subject">
+                <option value="all">All Subjects</option>
+                <!-- Populated dynamically -->
+              </select>
+            </div>
+            <div class="select-wrapper">
+              <i data-lucide="arrow-up-down"></i>
+              <select id="sort-assignments" aria-label="Sort assignments">
+                <option value="urgency-desc">Urgency (Highest First)</option>
+                <option value="urgency-asc">Urgency (Lowest First)</option>
+                <option value="due-asc">Due Date (Earliest First)</option>
+                <option value="due-desc">Due Date (Latest First)</option>
+              </select>
+            </div>
+            <button id="btn-manage-subjects" class="btn btn-secondary">
+              <i data-lucide="settings"></i>
+              <span>Subjects</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Assignment Radar (Zones) -->
+        <section class="radar-section" aria-label="Assignment Zones Grid">
+          
+          <!-- Empty State Container -->
+          <div id="radar-empty-state" class="empty-state glass-panel hidden">
+            <div class="empty-illustration">
+              <svg viewBox="0 0 200 200" width="160" height="160">
+                <defs>
+                  <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="var(--accent-glow-start)" />
+                    <stop offset="100%" stop-color="var(--accent-glow-end)" />
+                  </linearGradient>
+                </defs>
+                <circle cx="100" cy="100" r="70" fill="none" stroke="url(#glowGrad)" stroke-width="2" stroke-dasharray="8 6" opacity="0.3" />
+                <circle cx="100" cy="100" r="50" fill="none" stroke="url(#glowGrad)" stroke-width="1" opacity="0.15" />
+                <path d="M100 60 L140 130 L60 130 Z" fill="none" stroke="url(#glowGrad)" stroke-width="3" stroke-linejoin="round" opacity="0.8" />
+                <circle cx="100" cy="115" r="5" fill="var(--color-primary)" />
+                <line x1="100" y1="85" x2="100" y2="105" stroke="var(--color-primary)" stroke-width="4" stroke-linecap="round" />
+              </svg>
+            </div>
+            <h2>No Assignments Logged</h2>
+            <p>Start organizing your academic journey by adding subjects and assignments.</p>
+            <div class="empty-actions">
+              <button id="btn-load-samples" class="btn btn-secondary">
+                <i data-lucide="database"></i>
+                <span>Load Demo Data</span>
+              </button>
+              <button id="btn-empty-add" class="btn btn-primary">
+                <i data-lucide="plus"></i>
+                <span>Add Your First Task</span>
+              </button>
+            </div>
+          </div>
+
+          <div id="radar-zones-container" class="radar-zones-grid">
+            <!-- Critical Zone -->
+            <div class="radar-zone-column glass-panel" id="zone-critical">
+              <div class="zone-header critical-border">
+                <div class="zone-title-wrapper">
+                  <span class="zone-indicator red-glow"></span>
+                  <h2>Critical Zone</h2>
+                </div>
+                <span class="zone-badge red-bg" id="count-critical">0</span>
+              </div>
+              <div class="zone-meta-desc">Due today or overdue. Immediate focus!</div>
+              <div class="assignment-list" id="list-critical" data-zone="critical">
+                <!-- Cards dynamic injection -->
+              </div>
+            </div>
+
+            <!-- Attention Zone -->
+            <div class="radar-zone-column glass-panel" id="zone-attention">
+              <div class="zone-header attention-border">
+                <div class="zone-title-wrapper">
+                  <span class="zone-indicator yellow-glow"></span>
+                  <h2>Attention Zone</h2>
+                </div>
+                <span class="zone-badge yellow-bg" id="count-attention">0</span>
+              </div>
+              <div class="zone-meta-desc">Due in the next 3 days. Action needed soon.</div>
+              <div class="assignment-list" id="list-attention" data-zone="attention">
+                <!-- Cards dynamic injection -->
+              </div>
+            </div>
+
+            <!-- Safe Zone -->
+            <div class="radar-zone-column glass-panel" id="zone-safe">
+              <div class="zone-header safe-border">
+                <div class="zone-title-wrapper">
+                  <span class="zone-indicator green-glow"></span>
+                  <h2>Safe Zone</h2>
+                </div>
+                <span class="zone-badge green-bg" id="count-safe">0</span>
+              </div>
+              <div class="zone-meta-desc">Due later or completed. You're on track.</div>
+              <div class="assignment-list" id="list-safe" data-zone="safe">
+                <!-- Cards dynamic injection -->
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="app-footer">
+        <p>© 2026 Deadline Buddy AI – Designed for Student Superpowers. Built with Glassmorphism & LocalStorage.</p>
+      </footer>
+    </section>
+  </div>
+
+  <!-- Modal: Add/Edit Assignment -->
+  <div class="modal-overlay hidden" id="modal-assignment" role="dialog" aria-modal="true" aria-labelledby="modal-assign-title">
+    <div class="modal-card glass-panel">
+      <div class="modal-header">
+        <h2 id="modal-assign-title">New Assignment</h2>
+        <button class="btn-close-modal" id="btn-close-assign-modal" aria-label="Close modal">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <form id="form-assignment" class="modal-form">
+        <input type="hidden" id="assignment-id">
+        
+        <div class="form-group">
+          <label for="assign-title">Assignment Title *</label>
+          <input type="text" id="assign-title" required placeholder="e.g. Compiler Design Lab 3" autocomplete="off">
+        </div>
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label for="assign-subject">Subject *</label>
+            <select id="assign-subject" required>
+              <!-- Dynamic subjects -->
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="assign-difficulty">Task Workload / Difficulty *</label>
+            <select id="assign-difficulty" required>
+              <option value="1">Easy (Light Workload)</option>
+              <option value="2" selected>Medium (Standard Workload)</option>
+              <option value="3">Hard (Heavy / Exam Prep)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="assign-due">Due Date & Time *</label>
+          <input type="datetime-local" id="assign-due" required>
+        </div>
+
+        <div class="form-group">
+          <label for="assign-desc">Notes & Resources</label>
+          <textarea id="assign-desc" placeholder="e.g. Upload PDF link, reference book chapter 4, group members..." rows="3"></textarea>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" id="btn-cancel-assign">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="btn-save-assign">Save Assignment</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Manage Subjects -->
+  <div class="modal-overlay hidden" id="modal-subjects" role="dialog" aria-modal="true" aria-labelledby="modal-sub-title">
+    <div class="modal-card glass-panel">
+      <div class="modal-header">
+        <h2 id="modal-sub-title">Manage Subjects</h2>
+        <button class="btn-close-modal" id="btn-close-sub-modal" aria-label="Close modal">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <!-- Add Subject Mini Form -->
+        <form id="form-add-subject" class="mini-form">
+          <div class="form-row-color">
+            <div class="form-group flex-1">
+              <label for="new-sub-name">New Subject Name</label>
+              <input type="text" id="new-sub-name" required placeholder="e.g., Artificial Intelligence" autocomplete="off">
+            </div>
+            <div class="form-group color-select-group">
+              <label for="new-sub-color">Tag Color</label>
+              <div class="color-picker-wrapper">
+                <input type="color" id="new-sub-color" value="#8b5cf6">
+              </div>
+            </div>
+            <div class="form-group align-end">
+              <button type="submit" class="btn btn-primary btn-add-sub" title="Add Subject">
+                <i data-lucide="plus"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <hr class="modal-divider">
+
+        <!-- List of existing subjects -->
+        <h3>Existing Subjects</h3>
+        <div class="subjects-list-container">
+          <ul id="subjects-ul-list">
+            <!-- Populated dynamically -->
+          </ul>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="btn-close-sub-manager">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
